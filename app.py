@@ -42,7 +42,8 @@ def export_csv():
 @app.route('/download/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
     base_path = os.path.join(os.getcwd(), "medias")
-    return send_from_directory(directory=base_path, filename=filename, as_attachment=True)
+    # return send_from_directory(directory=base_path, filename=filename, as_attachment=True)
+    return send_file(os.path.join(base_path, filename), as_attachment=True)
 
 
 if __name__ == "__main__":
