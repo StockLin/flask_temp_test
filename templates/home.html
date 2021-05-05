@@ -37,6 +37,7 @@
                 var filename = "FileA"
                 var data1 = $("#data1").val();
                 var data2 = $("#data2").val();
+                var url = "";
                 
                 $.ajax({
                     "type":"POST",
@@ -45,8 +46,8 @@
                     "dataType":"text",
                     "data": JSON.stringify({"filename":filename, "data1":data1, "data2":data2}),
                     "success": function(response){
-                        var link = "http://localhost:5000/download/" + response ;
-                        window.open(link, '_blank');
+                        url = "http://localhost:5000/download/" + response ;
+                        window.open(url, '_blank');
                     },
                     "error":function(xhr, status, error){
                         var err = eval("(" + xhr.responseText + ")" );
