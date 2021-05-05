@@ -19,10 +19,6 @@ def export_csv():
 
         data = request.get_json()
 
-        # 建立unique-id資料夾
-        # unique_id = str(uuid4())
-        # os.mkdir(os.path.join(base_path, unique_id))
-
         today = datetime.datetime.today() 
         today = today.strftime('%Y%m%d')
         filename = f"{today}-{data['filename']}.csv"
@@ -40,7 +36,7 @@ def export_csv():
 
         return filename
 
-    return  render_template("home.html")
+    return render_template("home.html")
 
 
 @app.route('/download/<path:filename>', methods=['GET', 'POST'])
